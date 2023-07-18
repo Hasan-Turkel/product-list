@@ -9,7 +9,7 @@ const Header = ({products, setThings}) => {
     const BASE_URL_CATEGORIES= "https://fakestoreapi.com/products/categories";
     const { data } = await axios(BASE_URL_CATEGORIES);
     setCategories(data)
-    setCategories([...data, "all"]);
+    setCategories([...data, "all"].reverse());
   };
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Header = ({products, setThings}) => {
   return (
     <header>
       <h1 className="m-4">Product List</h1>
-      <nav className="container d-flex  flex-row-reverse justify-content-center mb-5">
+      <nav className="container d-flex flex-wrap justify-content-center mb-5">
         {categories?.map((item, i)=>{
             return(
                 <button  onClick={handleCategory} className={active===item.toUpperCase()?"m-2 w-25 btn btn-primary":"m-2 w-25 btn btn-info "} key={i} >{item.toUpperCase()}</button>
