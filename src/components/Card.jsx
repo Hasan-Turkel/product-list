@@ -1,16 +1,15 @@
 
 
-const Card = ({products}) => {
+const Card = ({things}) => {
   return (
 
     
-  <div>
-    
-    {products?.map((item, i)=>{
+  <div className="m-4 row flex-wrap align-items-center">
+    {things?.map((item, i)=>{
             return(
-                <div key={i}>
-                <img src={item?.image} alt="img" width={"200px"} />
-                <h3>{item?.price}</h3>
+            <div className="col-lg-3 col-md-6"  key={i}>
+                <img src={item?.image} alt="img" width={"200px"} height={"200px"} />
+                <h3>{item?.price} $</h3>
                 <p>{item?.title}</p>
             </div>
                 
