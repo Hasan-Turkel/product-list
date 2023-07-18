@@ -28,7 +28,7 @@ const Header = ({products, setThings}) => {
       <nav className="container d-flex  flex-row-reverse justify-content-center mb-5">
         {categories?.map((item, i)=>{
             return(
-                <button  onClick={handleCategory} className={active===item.toUpperCase()?"m-2 w-25 btn btn-primary":"m-2 w-25 btn btn-info"} key={i} >{item.toUpperCase()}</button>
+                <button  onClick={handleCategory} className={active===item.toUpperCase()?"m-2 w-25 btn btn-primary":"m-2 w-25 btn btn-info "} key={i} >{item.toUpperCase()}</button>
             )
         })}
       </nav>
