@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 const Header = ({products, setThings}) => {
   const [categories, setCategories] = useState([]);
+  const [active, setActive] = useState("ALL");
+  
   const getCategories = async () => {
     const BASE_URL_CATEGORIES= "https://fakestoreapi.com/products/categories";
     const { data } = await axios(BASE_URL_CATEGORIES);
@@ -15,17 +17,18 @@ const Header = ({products, setThings}) => {
   }, []);
 
   const handleCategory = (e)=>{setThings(
-    products.filter((item)=>e.target.innerText=="ALL"?products:e.target.innerText==item.category.toUpperCase())
+    products.filter((item)=>e.target.innerText==="ALL"?products:e.target.innerText===item.category.toUpperCase())
   ) 
+  setActive(e.target.innerText)
   }
 
   return (
     <header>
       <h1 className="m-4">Product List</h1>
-      <nav className="container d-flex flex-row-reverse justify-content-center mb-5">
+      <nav className="container d-flex  flex-row-reverse justify-content-center mb-5">
         {categories?.map((item, i)=>{
             return(
-                <button onClick={handleCategory} className="m-2 w-25" key={i} >{item.toUpperCase()}</button>
+                <button  onClick={handleCategory} className={active===item.toUpperCase()?"m-2 w-25 btn btn-primary":"m-2 w-25 btn btn-info"} key={i} >{item.toUpperCase()}</button>
             )
         })}
       </nav>

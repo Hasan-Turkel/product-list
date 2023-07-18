@@ -4,7 +4,7 @@ const Card = ({things}) => {
   return (
 
     
-  <div className="m-4 row flex-wrap align-items-center">
+  <div className="m-4 row flex-wrap justify-content-center">
     {things?.map((item, i)=>{
             return(
             <div className="col-lg-3 col-md-6"  key={i}>
